@@ -54,7 +54,7 @@ First, I go through all the lines selected by Hough Line Transform and then sepa
 
 Then, for each type of lines (i.e. left lines and right lines), I first remove the outliers that lay 1.5 times of the IQR (Interquartile Ranges) and then calculate the mean coordinates of these lines to get the averaged line of this type.
 
-Last, I draw both the averaged left line and averaged right line with a `thickness of 10` as my landline overlay.
+Last, I extrapolate the line to the estiamted full extent and length, and then draw both this extrapolated averaged left line and averaged right line with a `thickness of 10` as my landline overlay.
 
 #### Examples of Improved Landline Detection
 ![alt text][image3]
