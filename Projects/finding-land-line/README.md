@@ -29,6 +29,7 @@ Here are two videos of my working land line detection pipeline:
 My pipeline consisted of 5 steps. 
 
 First, I converted the images to grayscale. 
+
 ![alt text][image1]
 
 Then, I apply an gaussian blur of `kernal size 7` to reduce the noise of the image. 
@@ -40,6 +41,7 @@ Later, I apply a mask region of lower bottom half to filter out only the edges t
 At last, I use a Hough Line Transform (`rho = 1`, `theta = np.pi/180`, `threshold = 5`, `min_landline_length = 20`, `max_line_gap = 5`) to further detect land lines.
 
 Up until this point, if we draw the lines selected after Hough Line Transform, we will find them to be segmented like so:
+
 ![alt text][image2]
 
 ### Further Work
