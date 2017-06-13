@@ -2,7 +2,7 @@
 These are functions and code extracted from the notebook, and can be used directly to process videos and to mark land lines over
 
 # Run the Code
-Make sure you have relevant pacakges installed. If you haven't, visit [here](https://github.com/Michael-Tu/Udacity-Self-Driving-Car/tree/master/Projects). Specifically, make sure you have OpenCV, moviepy, and Numpy installed.
+Make sure you have relevant pacakges installed. If you haven't, visit [here](https://github.com/Michael-Tu/Udacity-Self-Driving-Car/tree/master/). Specifically, make sure you have OpenCV, moviepy, and Numpy installed.
 
 Activate relevant environment and run the following code:
 
