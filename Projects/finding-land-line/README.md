@@ -1,9 +1,16 @@
-#**Finding Lane Lines on the Road** 
+# **Finding Lane Lines on the Road** 
 
 <img src="examples/laneLines_thirdPass.jpg" width="480" alt="Combined Image" />
 
 ## Overview
 When we drive, we use our eyes to decide where to go.  The lines on the road that show us where the lanes are act as our constant reference for where to steer the vehicle.  Naturally, one of the first things we would like to do in developing a self-driving car is to automatically detect lane lines using an algorithm.
+
+## Working Examples
+Here are two videos of my working land line detection pipeline:
+
+- [EXAMPLE 1](https://youtu.be/WvMjKvKvMR0)
+- [EXAMPLE 2](https://youtu.be/_ANL75vW-2g)
+
 
 [//]: # (Image References)
 
@@ -39,7 +46,7 @@ Up until this point, if we draw the lines selected after Hough Line Transform, w
 
 In order to draw a single line on the left and right lanes, I modified the `draw_lines()` function to identify the full extent of the lane through line averaging and extrapolation.
 
-I did so in several steps.
+I did so in 3 steps.
 
 First, I go through all the lines selected by Hough Line Transform and then separate them into left lines and right lines.
 
