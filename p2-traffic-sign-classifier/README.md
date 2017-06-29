@@ -14,14 +14,14 @@ This project requires [CarND Term1 Starter Kit](https://github.com/udacity/CarND
 ## Dataset and Repository
 
 1. Download the [data set](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset) and put them under a folder named `data`.
-2. Download this [project repo](https://github.com/Michael-Tu/Udacity-Self-Driving-Car/tree/master/p2-traffic-sign-classifier)
+2. Download this [project repo](https://tugan0329.bitbucket.io/downloads/udacity/car/traffic-sign/p2-traffic-sign-classifier.zip)
 
 
 ## Detailed Model Description 
 
 ### Data Set Summary & Exploration
 
-#### 1.Basic Summary
+#### 1. Basic Summary
 
 I used Python and numpy to calculate the following summary statistics of the traffic
 signs data set:
@@ -36,11 +36,11 @@ signs data set:
 
 Here is an exploratory visualization of the data set. Here are the bar charts that show how the training, validation, and testing data all have similar distribution and slightly skwed to the right.
 
-![visualization_train] (./examples/visualization_train.png)
+![visualization_train](./examples/visualization_train.png)
 
-![visualization_valid] (./examples/visualization_valid.png)
+![visualization_valid](./examples/visualization_valid.png)
 
-![visualization_test] (./examples/visualization_test.png)
+![visualization_test](./examples/visualization_test.png)
 
 ### Design and Test a Model Architecture
 
