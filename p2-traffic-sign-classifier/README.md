@@ -116,9 +116,9 @@ Here is an example of a traffic sign image after Keras image manipulation.
 
 After image augmentation, the size of training set has increased from 34799 to 39019, but the distribution has remained similar: 
 
-![visualization_train] (./examples/visualization_train.png)
+![visualization_train](./examples/visualization_train.png)
 
-![visualization_train_postprocess] (./examples/visualization_train_postprocess.png)
+![visualization_train_postprocess](./examples/visualization_train_postprocess.png)
 
 
 #### 2. Final Model Architecture
