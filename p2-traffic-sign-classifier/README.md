@@ -13,7 +13,7 @@ This project requires [CarND Term1 Starter Kit](https://github.com/udacity/CarND
 
 ## Dataset and Repository
 
-1. Download the [data set](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset) and put them under a folder named `data`.
+1. Download the [data set](https://d17h27t6h515a5.cloudfront.net/topher/2017/February/5898cd6f_traffic-signs-data/traffic-signs-data.zip) and put them under the folder named `data`.
 2. Download this [project repo](https://tugan0329.bitbucket.io/downloads/udacity/car/traffic-sign/p2-traffic-sign-classifier.zip)
 
 
@@ -211,7 +211,7 @@ Here are the results of the prediction:
 | Image | Prediction | 
 |:----:|:-------------:| 
 | Yield | Yield |
-| Priority Road | Priority Road | 
+| Priority Road | Keep Right | 
 | Speed Limit 30 | Speed Limit 30 |
 | No Passing | No Passing |
 
@@ -221,7 +221,7 @@ Here are the results of the prediction:
 ![speed limit 30](./examples/pred_speed_limit_30.png)
 ![no passing](./examples/pred_no_passing.png)
 
-The model was able to correctly guess 5 of the 5 traffic signs, which gives an accuracy of 100%. This compares favorably to the accuracy on the test set of 94.0%. This better performance is achieved probably due to my inherit selection bias and the good image quality returned by Google. 
+The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares not as good to the accuracy on the test set of 94.0%. This slightly worse performance happened probably due to not enough training examples for "keep right", if you at the distribution of labels in the training set. This results in network learning incomplete representation of "keep right" sign, or overfitting. 
 
 #### 3.Top 5 softmax probabilities for each image along with the sign type of each probability. 
 
