@@ -372,3 +372,9 @@ Here are two examples of augmented images:
 
 ![Image 1 with augmentation](examples/augment_track1_img.png)
 ![Image 2 with augmentation](examples/augment_track2_img.png)
+
+## Additional Side Notes
+
+Since the training data contains a lot of images, we use generators for loading and feeding training data instead of loading all images in memory.
+
+
