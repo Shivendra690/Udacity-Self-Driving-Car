@@ -91,6 +91,10 @@ The model used an adam optimizer, so the learning rate was not tuned manually. B
 
 Training data was chosen to keep the vehicle driving on the road. I collected training data by running simulator traininig mode and using a combination of center lane driving and recovering from the left and right sides of the road. I then used a series of data augmentation techiniques on center images as well as left/right camera images to help model better generalize. For details about how I created the training data, see the next section. 
 
+#### 6. Fine Tuning
+
+I used the idea of transfer learning and iteratively train each new experimented network architecture and parameters on top of previously best model trained and saved. I load the model using Keras `load_model` function. I also manually experimented increasing dropout keep probability higher as I try to optimize further.
+
 ## Data Preprocessing & Augmentation
 
 ### Data Distribution
