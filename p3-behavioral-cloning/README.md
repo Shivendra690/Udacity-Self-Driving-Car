@@ -93,7 +93,7 @@ Training data was chosen to keep the vehicle driving on the road. I collected tr
 
 #### 6. Fine Tuning
 
-I used the idea of transfer learning and iteratively train each new experimented network architecture and parameters on top of previously best model trained and saved. I load the model using Keras `load_model` function. I also manually experimented increasing dropout keep probability higher as I try to optimize further.
+I used the idea of transfer learning and iteratively train each new experimented network parameters (batchsize, epochs, etc.) on top of previously best model trained and saved. I load the model using Keras `load_model` function. I also manually experimented increasing dropout keep probability higher as I try to optimize further.
 
 ## Data Preprocessing & Augmentation
 
