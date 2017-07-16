@@ -102,12 +102,15 @@ I used the idea of transfer learning and iteratively train each new experimented
 As discussed above, the training data steering angle distribution has a high number of 0s (so going stright without turning) for lake track, and 0/1/-1 (turning left and right) for jungle track due to the nature of the tracks. 
 
 **All Sample Distribution**
+
 ![All Sample Distribution](examples/pre_all_sample_distribution.png)
 
 **Lake Track Sample Distribution**
+
 ![Lake Track Sample Distribution](examples/pre_track1_sample_distribution.png)
 
 **Jungle Track Sample Distribution**
+
 ![Jungle Track Sample Distribution](examples/pre_track2_sample_distribution.png)
 
 Therefore, the network tends to be biased towards these angles and have trouble generalizing and working well at sharp turns.
@@ -159,12 +162,15 @@ After applying resampling, we can see that the post distributions now look more 
 
 
 **New All Sample Distribution**
+
 ![New All Sample Distribution](examples/post_all_sample_distribution.png)
 
 **New Lake Track Sample Distribution**
+
 ![New Lake Track Sample Distribution](examples/post_track1_sample_distribution.png)
 
 **New Jungle Track Sample Distribution**
+
 ![New Jungle Track Sample Distribution](examples/post_track2_sample_distribution.png)
 
 ### Image Normalization
@@ -191,16 +197,14 @@ model.add(Cropping2D(cropping=((70, 25), (0,0))))
 ```
 
 **Before Cropping**
-<p align="center">
+
 ![Image 1 before cropping](examples/track1_img.png)
 ![Image 2 before cropping](examples/track2_img.png)
-</p>
 
 **After Cropping**
-<p align="center">
+
 ![Image 1 after cropping](examples/crop_track1_img.png)
 ![Image 2 after cropping](examples/crop_track2_img.png)
-</p>
 
 ### Image Augmentation
 ---
@@ -227,13 +231,11 @@ right_angle = center_angle - side_image_correction
 Here are examples of left camera images:
 
 ![Image 1 left](examples/left_track1_img.png)
-
 ![Image 2 left](examples/left_track2_img.png)
 
 Here are examples of right camera images:
 
 ![Image 1 right](examples/right_track1_img.png)
-
 ![Image 2 right](examples/right_track2_img.png)
 
 #### 2. Flip
@@ -285,9 +287,11 @@ def adjust_brightness_RGB(img):
 Here are examples of images after applying random brightness adjustment:
 
 **75% of original brightness**
+
 ![Image 1 at 75% of original brightness](examples/brightness_track1_img.png)
 
 **83% of original brightness**
+
 ![Image 2 at 83% of original brightness](examples/brightness_track2_img.png)
 
 #### 5. Random Transform Adjustment
@@ -310,7 +314,6 @@ def random_translate(image, steering_angle, range_x=100, range_y=10):
 Here are examples of images after applying random transform adjustment:
 
 ![Image 1 after transformation](examples/transform_track1_img.png)
-
 ![Image 2 after transformation](examples/transform_track2_img.png)
 
 #### 6. Random Shadow
@@ -339,7 +342,6 @@ def random_shadow(image):
 Here are examples of images after applying random shadow:
 
 ![Image 1 with shadow](examples/shadow_track1_img.png)
-
 ![Image 2 with shadow](examples/shadow_track2_img.png)
 
 #### 7. Augmentation of All Above Techniques
@@ -367,6 +369,6 @@ def use_augmentation(prob):
 ```
 
 Here are two examples of augmented images:
-![Image 1 with augmentation](examples/augment_track1_img.png)
 
+![Image 1 with augmentation](examples/augment_track1_img.png)
 ![Image 2 with augmentation](examples/augment_track2_img.png)
