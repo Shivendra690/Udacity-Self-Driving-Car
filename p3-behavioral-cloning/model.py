@@ -182,8 +182,8 @@ def generator(samples, directory, batch_size=32, side_image_correction=0.25, pre
 
 def build_model(cropping_box=((70,25), (0,0)), input_shape=(160,320,3), normalize_fn=lambda x: x / 255.0 - 0.5):
     model = Sequential()
-    model.add(Lambda(normalize_fn, input_shape=input_shape))
     model.add(Cropping2D(cropping=cropping_box))
+    model.add(Lambda(normalize_fn, input_shape=input_shape))
     model.add(Convolution2D(24, 5, 5, subsample=(2,2), activation="elu"))
     model.add(Convolution2D(36, 5, 5, subsample=(2,2), activation="elu"))
     model.add(Convolution2D(48, 5, 5, subsample=(2,2), activation="elu"))
