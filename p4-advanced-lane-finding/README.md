@@ -14,7 +14,7 @@ You can check out the previous naive version of this project [here](http://code.
 
 ![demo](output_images/demo.gif)
 
-You can also watch a demo video of this project [on my YouTube](https://www.youtube.com/watch?v=1HAn31kwd7k&feature=youtu.be)
+You can also watch a demo video of this project [on my YouTube](https://youtu.be/Lw5kBiCGr-g)
 
 ## Get the Code
 You can download this folder of code [here](https://tugan0329.bitbucket.io/downloads/udacity/car/land-line/p4-advanced-lane-finding.zip)
@@ -116,10 +116,11 @@ Specifically, I chose to hard-code the source and destination points in the foll
 
 | Source        | Destination   | 
 |:-------------:|:-------------:| 
-| 225,685      | 320,720        | 
-| 1080,685     | 960, 720      |
-| 510,500     | 320,30      |
-| 775,500      | 960, 30        |
+| 190,720      | 340,720       | 
+| 589,457     | 340,0      |
+| 698,457     | 995,0      |
+| 1145,720      | 995, 720        |
+
 
 I verified that my perspective transform was working as expected, and here are two examples:
 
@@ -198,7 +199,7 @@ Here is a gif demo:
 
 ![demo](output_images/demo.gif)
 
-You can also watch a demo video of this project [on my YouTube](https://www.youtube.com/watch?v=1HAn31kwd7k&feature=youtu.be)
+You can also watch a demo video of this project [on my YouTube](https://youtu.be/Lw5kBiCGr-g)
 
 ---
 
