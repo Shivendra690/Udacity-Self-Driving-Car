@@ -10,6 +10,9 @@ When we drive, we use our eyes to decide where to go.  The lines on the road tha
 
 In this project, I detected highway lane lines on a video stream and used OpencV image analysis techniques to identify lines, including Hough Transforms and Canny edge detection.
 
+You can check out the new advanced version of this project [here](https://github.com/Michael-Tu/Udacity-Self-Driving-Car/tree/master/p4-advanced-lane-finding).
+
+
 ## Get the Code
 You can download this folder of code [here](https://tugan0329.bitbucket.io/downloads/udacity/car/land-line/p1-finding-land-line.zip)
 
