@@ -86,7 +86,9 @@ The effects demo above uses a combination of all of the mechanism and techniques
 
 **Mechanism - Sobel Filter**
 
-Sobel–Feldman operator is one common computer vision technique used for edge detection. You can learn more on [Wikipedia](https://en.wikipedia.org/wiki/Sobel_operator). 
+Sobel–Feldman operator is one common computer vision technique used for edge detection. 
+
+You can learn more on [Wikipedia](https://en.wikipedia.org/wiki/Sobel_operator). 
 
 Whenever there is an edge, there is usually a sharp pixel value gradient change. Thus, Sobel filter detects edges by computing the gradients of color change in between pixels, so I fine tuned thresholds on how much gradients can change (on x axis, y axis, combined gradient magnitude, etc.) to extract usable edges. 
 
@@ -163,7 +165,7 @@ _The code for this step is in the "Detect lane line and boundry" section of the 
 
 **Radius of Curvature**
 
-We can report information of the road by taking the measurements of where the lane lines are and estimate how much the road is curving. Given a polynomial fit from above, I calculated the radius of curvature for the lane easily following the math tutorials [here](https://www.intmath.com/applications-differentiation/8-radius-curvature.php) 
+We can report information of the road by taking the measurements of where the lane lines are and estimate how much the road is curving. Given a polynomial fit from above, I calculated the radius of curvature for the lane by following [this math tutorials](https://www.intmath.com/applications-differentiation/8-radius-curvature.php) 
 
 Note that this radius is in pixel space, which is not the same as real world space, so I will repeat this calculation after converting our x and y values to real world space in meters, assuming the curve of the road follows a circle.
 
@@ -193,6 +195,7 @@ Now, the fit from the rectified image has been warped back onto the original ima
 To avoid extreme outliers for lane fitting, I will smooth over last 10 frames for left lane and right lane pixels detected to give smoother, stable polynomial fit.
 
 Here is a gif demo:
+
 ![demo](output_images/demo.gif)
 
 You can also watch a demo video of this project [on my YouTube](https://www.youtube.com/watch?v=1HAn31kwd7k&feature=youtu.be)
