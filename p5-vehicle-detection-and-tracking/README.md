@@ -10,8 +10,6 @@ In this project, I'll write a software pipeline to identify vehicles in a video 
 
 ![demo](output_images/demo.gif)
 
-You can also watch a demo video of this project [on my YouTube]()
-
 
 ## Get the Code
 You can download this folder of code [here](https://tugan0329.bitbucket.io/downloads/udacity/car/land-line/p5-vehicle-detection-and-tracking.zip)
@@ -151,7 +149,7 @@ I tried to retrain the classifier with more training data, to change window size
 
 #### 1. Video output
 
-Here's a [link to my video result]()
+Here's a [link to my video result](project_video.mp4)
 
 
 #### 2. Avoid false positives and combine overlapping bounding boxes
