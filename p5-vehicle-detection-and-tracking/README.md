@@ -170,12 +170,12 @@ I also keep track of bonding boxes found from previous timestamps, and use them 
 
 ### Discussion
 
-
+<!-- 
 There indeed are some areas in the final video where the bonding box is off and floating, it seems to due to the issue of the classifier is unable to identify the car in the following case:
 
 ![classifier_performance](output_images/car_identification5.png)
 
-I tried to retrain the classifier with more training data, to change window size, and many other approaches, and for now it is still unable to classify it. I decide to move on at this point, but look back in future, or with other classifiers like a CNN.
+I tried to retrain the classifier with more training data, to change window size, and many other approaches, and for now it is still unable to classify it. I decide to move on at this point, but look back in future, or with other classifiers like a CNN. -->
 
 Also, in the training image, there are lots of timeseries images of the car in the GTI dataset, so it would be a good idea to retrain the classifier on a filtered training data without too much time series images, in order to avoid overfitting.
 
