@@ -39,7 +39,6 @@ _The code for this step is in the "Histogram of Oriented Gradients (HOG" section
 I started by reading in all the `vehicle` and `non-vehicle` images.  Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
 
 ![car image](output_images/car.png)
-
 ![noncar image](output_images/noncar.png)
 
 I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
@@ -132,13 +131,13 @@ After that,  I compared overlap ratio from [0.5, 0.5] to [0.7, 0.7].
 
 As we can see, the higher the overlap, the higher confidence we have for the region, which is good if we apply a threshold to avoid false positives.
 
-Thus, I decided on using window size of 64 and overlap ratio of 0.7 during my sliding window search.
+Thus, I decided on using both a window size of 64 with overlap ratio of 0.7 and a window size of 128 with overlap ratio of 0.5 during my sliding window search. 
 
 #### 2. Optimize the performance of the classifier and pipeline
 
 Ultimately I searched on above parameters for HOG features, window size, and overlap ratio. It turns out that my first choice of parameter settings work the best providing a nice result.  Here is an example:
 
-![demo][output_images/car_identification.png]
+![demo](output_images/car_identification.png)
 
 However, there indeed are some areas in the final video where the bonding box is off and floating, it seems to due to the issue of the classifier is unable to identify the car in the following case:
 
