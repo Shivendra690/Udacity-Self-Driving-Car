@@ -10,6 +10,8 @@ In this project, I'll write a software pipeline to identify vehicles in a video 
 
 ![demo](output_images/demo.gif)
 
+You can also watch a demo video of this project [on my YouTube](https://youtu.be/ogwdGtVbd40)
+
 
 ## Get the Code
 You can download this folder of code [here](https://tugan0329.bitbucket.io/downloads/udacity/car/land-line/p5-vehicle-detection-and-tracking.zip)
@@ -32,12 +34,11 @@ The general steps of this project are the following:
 
 #### 1. Extract HOG features from training images.
 
-_The code for this step is in the "Histogram of Oriented Gradients (HOG" section of the notebook._
+_The code for this step is in the "Histogram of Oriented Gradients (HOG)" section of the notebook._
 
 I started by reading in all the `vehicle` and `non-vehicle` images.  Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
 
-![car image](output_images/car.png)
-![noncar image](output_images/noncar.png)
+![car and noncar image](output_images/sample.png)
 
 I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
 
@@ -108,7 +109,9 @@ The high level idea is to search on the images with different bonding boxes, and
 
 #### 1. Decide on scales and overlap windows to search 
 
-First, I restrict all my search to be within [400, 720] for y axis and [500, 1200] for x axis, because only in these places will cars show up as they are the roads and the lane next to us. In this way, I can avoid more potential false postivies from sky and trees.
+First, I restrict all my search to be within [400, 680] for y axis and [600, 1250] for x axis, because only in these places will cars show up as they are the lane next to us. In this way, I can avoid more potential false postivies from sky and trees.
+
+![cutout](output_images/cutout.png)
 
 Then, I compared search window of size from [32, 32], [64, 64], and [128, 128], and here are the results.
 
@@ -119,29 +122,31 @@ Then, I compared search window of size from [32, 32], [64, 64], and [128, 128], 
 
 ![classifier_performance](output_images/car_identification.png)
 
-As we can see, as the window size increases, the bonding boxes becomes bigger. The small window size results in way more false positives, but large window sizes result in very few bonding boxes surrounding the car, leading to lower confidence.
+As we can see, as the window size increases, the bonding boxes become bigger but fewer in quantity. As the window size decreases, the bonding boxes become smaller but there are more false positives.
 
-After that,  I compared overlap ratio from [0.5, 0.5] to [0.7, 0.7]. 
+After that,  I compared overlap ratio from scanning continously or with a skip of few pixels in between the windows. 
 
-![classifier_performance](output_images/car_identification2.png)
+![classifier_performance](output_images/window64-step1.png)
 
-![classifier_performance](output_images/car_identification4.png)
+![classifier_performance](output_images/window64-step2.png)
 
-As we can see, the higher the overlap, the higher confidence we have for the region, which is good if we apply a threshold to avoid false positives.
+As we can see, the more closely we search, the more bonding boxes we generate around each car.
 
-Thus, I decided on using both a window size of 64 with overlap ratio of 0.7 and a window size of 128 with overlap ratio of 0.5 during my sliding window search. 
+Since cars decrease in apparent size as they drive further away from us, it makes sense to search for the car in different window sizes.
+
+Thus, after few experimentatinos, I decided to use both a window size of 64 with 16 pixels skip in between windows, and a window size of 96 with 12 pixels in between. I combine all of the bonding boxes from these two rounds of searching for further analysis.
 
 #### 2. Optimize the performance of the classifier and pipeline
 
-Ultimately I searched on above parameters for HOG features, window size, and overlap ratio. It turns out that my first choice of parameter settings work the best providing a nice result.  Here is an example:
+I experimented on different combination of parameters for HOG features, window size, and skip pixels. It turns out that the choice of parameter settings mentioned above work already well providing a nice result.  Here is an example:
 
 ![demo](output_images/car_identification.png)
 
-However, there indeed are some areas in the final video where the bonding box is off and floating, it seems to due to the issue of the classifier is unable to identify the car in the following case:
+However, there indeed are false positives in some frames like so:
 
-![classifier_performance](output_images/car_identification5.png)
+![classifier_performance](output_images/false_positives.png)
 
-I tried to retrain the classifier with more training data, to change window size, and many other approaches, and for now it is still unable to classify it. I decide to move on at this point, but look back in future, or with other classifiers like a CNN.
+I went back to retrain the classifier with fewer images to avoid overffitting. After retrainning, the classifier has gotten much better at the task.
 
 ---
 
@@ -149,35 +154,40 @@ I tried to retrain the classifier with more training data, to change window size
 
 #### 1. Video output
 
-Here's a [link to my video result](project_video.mp4)
+Here's a [link to my video result](https://youtu.be/ogwdGtVbd40)
 
 
 #### 2. Avoid false positives and combine overlapping bounding boxes
 
-I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle.  I constructed bounding boxes to cover the area of each blob detected.  
+I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle, and constructed a main bounding box to cover the area of each blob detected.  
 
-Here's an example result showing the heatmap from a series of frames of video:
+**Here the resulting bounding boxes drawn onto a frame**
 
 ![final](output_images/heatmap.png)
 
-**Here the resulting bounding boxes are drawn onto the last frame in the series:**
+![final](output_images/heatmap2.png)
 
-![final](output_images/final.png)
+#### 3. Timeseries Tracking
 
-I also keep track of bonding boxes found from previous timestamps, and use them in the heatmap for bonding box prediction, as a way to smooth out variability from classifier. This is to enforce the idea that vehicles appeared in one frame should still be around at the same position in the next frame.
+Vehicles appeared in one frame should still be around at the same position in the next frame, so our bonding boxes should be approximately around same area. New vehicles also appear into our view from lower right half of the view, because we are on the left lane.
+
+Therefore, I created a `VideoProcess` class where it does filtering on the bonding boxes generated from `slide window search` to further eliminate false positives.
+
+- I manully chose a line that roughly fits the right lane line in the view, and reject any bonding boxes that have a box center laying on the left side of the line. In other words, I only consider a bonding box valid if it is capturing a potential vehicle candidate in the lane next to us.
+
+- I keep track of roughly one-third of the bonding boxes found in each step, and insert them into the bonding boxes found for the next timestamp/frame, as a way of smoothing.
 
 ---
 
 ### Discussion
 
-<!-- 
-There indeed are some areas in the final video where the bonding box is off and floating, it seems to due to the issue of the classifier is unable to identify the car in the following case:
+There are occasional false positives in the final result video still, so more tracking and smoothing techniques are required to reject false positives.
 
-![classifier_performance](output_images/car_identification5.png)
+Also, the classifier will be more accurate and can eliminate more false positives if trained using a Convolutional Neural Network, since it's good for computer vision in general, so developing a pipeline integrating CNN will be an interesting next step. 
 
-I tried to retrain the classifier with more training data, to change window size, and many other approaches, and for now it is still unable to classify it. I decide to move on at this point, but look back in future, or with other classifiers like a CNN. -->
+We can also use image augmentation techniques to generate more training data, but under different angles and lighting situations. A classifier trained on these new data will generalize better. The GTI dataset also tends to have time serires images of same car in a short amount of time, so it may lead the model to overfit. We can consider removing these as well.
 
-Also, in the training image, there are lots of timeseries images of the car in the GTI dataset, so it would be a good idea to retrain the classifier on a filtered training data without too much time series images, in order to avoid overfitting.
+The bonding boxes also wabble and change in size frequently, so it will be good visually to also have a pipeline to make the bonding box more stable and roughly in same size.
 
 
 
