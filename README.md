@@ -5,6 +5,11 @@
 # Projects
 These are projects I developed as a part of [Udacity Self Driving Car Nanodegree Program](https://www.udacity.com/drive).
 
+## Relevant Projects
+You can also view my [robotic projects](https://github.com/Michael-Tu/Udacity-Robotics). 
+
+These projects include but not limited to autonomus rover (environment mapping & sample extraction), robotic arm pick and place, robotic 3d perception, and autonomous drone follow.
+
 ## Environment Setup
 Make sure you have Anaconda installed. Then, run `conda env create -f environment.yml` to install all necessary pacakges needed for all my projects.
 
