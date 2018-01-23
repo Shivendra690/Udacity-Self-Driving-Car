@@ -14,7 +14,7 @@ The goal of this **Behavioral Cloning Project** is to build a convolution neural
 ### Autonomous Driving Simulation Video
 You can watch my car autonomously drive around both lake track and jungle track here:
 
-- [Lake Track Simulation](https://www.youtube.com/watch?v=bJPQDfu15sc&t=58s)
+- [Lake Track Simulation](https://www.youtube.com/watch?v=bJPQDfu15sc)
 - [Jungle Track Simulation](https://www.youtube.com/watch?v=eu2-NLfhzYQ)
 
 ### Run Autonomous Mode Yourself
