@@ -21,7 +21,7 @@ You can also watch a demo video of this project [on my YouTube](https://youtu.be
 
 
 ## Get the Code
-You can download this folder of code [here](https://youtu.be/eGQ28_dX3V0)
+You can download this folder of code [here](https://tugan0329.bitbucket.io/downloads/udacity/car/ekf/p6-extended-kalman-filter.zip)
 
 ## Project Setup
 
@@ -31,7 +31,7 @@ This repository includes two bash files (`install-mac.sh` and `install-ubuntu.sh
 
 For windows you can use either Docker, VMware, or even [Windows 10 Bash on Ubuntu](https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/) to install uWebSocketIO. 
 
-For more detailed setup guide, please refer to [this folder](https://github.com/Michael-Tu/Udacity-Self-Driving-Car/tree/master/p6-extended-kalman-filter/setup-guide) for detailed setup instructions.
+For more detailed environment setup guide, please refer to [this folder](https://github.com/Michael-Tu/Udacity-Self-Driving-Car/tree/master/p6-extended-kalman-filter/setup-guide) for detailed setup instructions.
 
 ## Run the Project
 
