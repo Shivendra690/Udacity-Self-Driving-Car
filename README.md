@@ -6,9 +6,9 @@
 These are projects I developed as a part of [Udacity Self Driving Car Nanodegree Program](https://www.udacity.com/drive).
 
 ## Relevant Projects
-You can also view my [robotic projects](https://github.com/Michael-Tu/Udacity-Robotics). 
+You can also view my [robotic projects](https://github.com/Michael-Tu/Udacity-Robotics) and [computer vision projects](https://github.com/Michael-Tu/Udacity-Computer-Vision). 
 
-These projects include but not limited to autonomus rover (environment mapping & sample extraction), robotic arm pick and place, robotic 3d perception, and autonomous drone follow.
+These projects include but not limited to facial recognition, facial keypoints detection, automatic image captioning, and landmark detection and localization using SLAM (simultaneous localization and mapping).
 
 ## Environment Setup
 Make sure you have Anaconda installed. Then, run `conda env create -f environment.yml` to install all necessary pacakges needed for all my projects.
