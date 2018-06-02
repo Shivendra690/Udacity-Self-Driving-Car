@@ -8,7 +8,8 @@ These are projects I developed as a part of [Udacity Self Driving Car Nanodegree
 ## Relevant Projects
 You can also view my [robotic projects](https://github.com/Michael-Tu/Udacity-Robotics) and [computer vision projects](https://github.com/Michael-Tu/Udacity-Computer-Vision). 
 
-These projects include but not limited to facial recognition, facial keypoints detection, automatic image captioning, and landmark detection and localization using SLAM (simultaneous localization and mapping).
+These projects include but not limited to traffic sign classifier, end-to-end learning/behavioral-cloning, lane line detection, and vehicle detection & tracking.
+
 
 ## Environment Setup
 Make sure you have Anaconda installed. Then, run `conda env create -f environment.yml` to install all necessary pacakges needed for all my projects.
